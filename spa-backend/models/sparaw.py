@@ -12,6 +12,8 @@ class SPARawModel(db.Model):
     RPName = db.Column(db.String(256), unique=True)
     RPDescription = db.Column(
         db.String(1024))
+    RPThickness = db.Column(
+        db.String(1024))
     RPQuantity = db.Column(db.Integer)
     RPPrice = db.Column(db.Float)
     RPWeight = db.Column(db.String(128))
@@ -22,10 +24,11 @@ class SPARawModel(db.Model):
     FinalProd = db.relationship('SPARFModel', backref=db.backref(
         'RawMaterials'))
 
-    def __init__(self, id, RPName, RPDescription, RPQuantity, RPPrice, RPWeight):
+    def __init__(self, id, RPName, RPDescription, RPThickness, RPQuantity, RPPrice, RPWeight):
         self.id = id
         self.RPName = RPName
         self.RPDescription = RPDescription
+        self.RPThickness = RPThickness
         self.RPQuantity = RPQuantity
         self.RPPrice = RPPrice
         self.RPWeight = RPWeight

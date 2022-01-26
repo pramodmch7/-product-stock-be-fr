@@ -17,6 +17,7 @@ def getRawProduct():
             DataC['id'] = a.id
             DataC['RPN'] = a.RPName
             DataC['RPD'] = a.RPDescription
+            DataC['RPT'] = a.RPThickness
             DataC['RPQ'] = a.RPQuantity
             DataC['RPP'] = a.RPPrice
             DataC['RPW'] = a.RPWeight
@@ -38,7 +39,7 @@ def addRawProduct():
 
         return {'message': f'Raw Product {FindRawProduct.RPName} is already exists!'}
 
-    NewRawProduct = SPARawModel(id=Id, RPName=dataRawProduct['RPN'], RPDescription=dataRawProduct['RPD'],
+    NewRawProduct = SPARawModel(id=Id, RPName=dataRawProduct['RPN'], RPDescription=dataRawProduct['RPD'], RPThickness=dataRawProduct['RPT'],
                                 RPQuantity=dataRawProduct['RPQ'], RPPrice=dataRawProduct['RPP'], RPWeight=dataRawProduct['RPW'])
     SPARawModel.saveRP(NewRawProduct, dataRawProduct['RPN'])
 
@@ -69,6 +70,7 @@ def updateRawProduct(id):
 
     RawProductUpdate.RPName = dataRawProduct['RPN']
     RawProductUpdate.RPDescription = dataRawProduct['RPD']
+    RawProductUpdate.RPThickness = dataRawProduct['RPT']
     RawProductUpdate.RPQuantity = dataRawProduct['RPQ']
     RawProductUpdate.RPPrice = dataRawProduct['RPP']
     RawProductUpdate.RPWeight = dataRawProduct['RPW']

@@ -44,11 +44,11 @@ def getFinalProduct():
             Data['SRDetails'] = Ndata
             data.append(Data)
 
-        FCostPrice = 0
-        for s in Data['SRDetails']:
-            FCostPrice += s['RPC']
+            FCostPrice = 0
+            for s in Data['SRDetails']:
+                FCostPrice += s['RPC']
 
-        Data['FPP'] = FCostPrice
+            Data['FPP'] = FCostPrice
 
     return{'message': data, 'status': 200}
 
